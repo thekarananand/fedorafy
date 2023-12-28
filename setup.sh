@@ -116,3 +116,5 @@ gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
 
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'
 
+# Enable Fractional Scaling Option.
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
