@@ -25,7 +25,7 @@ sudo dnf remove -y gnome-shell-extension-places-menu
 sudo dnf remove -y gnome-shell-extension-window-list
 sudo dnf remove -y gnome-system-monitor
 sudo dnf remove -y gnome-terminal
-sudo dnf remove -y gnome-terminal-nautilus
+# sudo dnf remove -y gnome-terminal-nautilus
 sudo dnf remove -y gnome-themes-extra
 sudo dnf remove -y gnome-tour
 sudo dnf remove -y gnome-user-docs
@@ -61,7 +61,6 @@ sudo dnf remove -y yelp
 sudo dnf remove -y simple-scan
 
 # DNF Config 
-
 sudo sh -c 'cat << EOF >> /etc/dnf/dnf.conf
 fastestmirror=True
 max_parallel_downloads=10
@@ -71,16 +70,13 @@ sudo dnf clean all
 sudo dnf autoremove
 
 # Get RPM Fusion
-
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Get Updates
-
 sudo dnf update -y
 
 # Install DNF Packages
-
 sudo dnf install -y jetbrains-mono-fonts
 sudo dnf install -y powerline-fonts
 sudo dnf install -y git
@@ -88,14 +84,11 @@ sudo dnf install -y gh
 sudo dnf install -y gnome-shell-extension-pop-shell
 sudo dnf install -y vlc
 
-
 # Install Flatpak Packages
-
 sudo flatpak install -y flathub app/com.raggesilver.BlackBox/x86_64/stable
 sudo flatpak install -y flathub app/org.onlyoffice.desktopeditors/x86_64/stable
 
 # Setup Synth Shell
-
 git clone --recursive https://github.com/andresgongora/synth-shell-prompt.git
 synth-shell-prompt/setup.sh
 
@@ -108,13 +101,16 @@ sed -i 's/font_color_input="45"/font_color_input="white"/' ~/.config/synth-shell
 rm -rf ~/synth-shell-prompt
 
 # Mouse & Trackpad Config
-
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
 
 # Add Minimize Button
-
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'
 
 # Enable Fractional Scaling Option.
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
+# Add Media Codecs
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-plugin-libav --exclude=gstreamer1-plugins-bad-free-devel
+sudo dnf install lame\* --exclude=lame-devel
+sudo dnf group upgrade --with-optional Multimedia
