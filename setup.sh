@@ -106,6 +106,10 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,c
 # Enable Fractional Scaling Option.
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
+# Better BlackBox Config
+gsettings set org.gnome.desktop.interface font 'JetBrains Mono Medium 12'
+gsettings set com.raggesilver.BlackBox opacity 90
+
 # Add Media Codecs
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-plugin-libav --exclude=gstreamer1-plugins-bad-free-devel
 sudo dnf install lame\* --exclude=lame-devel
