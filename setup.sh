@@ -1,31 +1,21 @@
-# Remove Bloatware
 
-sudo dnf remove -y desktop-backgrounds-gnome
-sudo dnf remove -y f38-backgrounds-gnome
-sudo dnf remove -y gnome-backgrounds
+touch .hushlogin
+
+# Remove Bloatware
+sudo dnf remove -y *background*
 sudo dnf remove -y gnome-boxes
 sudo dnf remove -y gnome-browser-connector
 sudo dnf remove -y gnome-classic-session
 sudo dnf remove -y gnome-connections
 sudo dnf remove -y gnome-contacts
-sudo dnf remove -y gnome-desktop3
-sudo dnf remove -y gnome-desktop4
-sudo dnf remove -y gnome-disk-utility
 sudo dnf remove -y gnome-keyring
 sudo dnf remove -y gnome-keyring-pam
 sudo dnf remove -y gnome-maps
 sudo dnf remove -y gnome-online-accounts
 sudo dnf remove -y gnome-photos
 sudo dnf remove -y gnome-remote-desktop
-sudo dnf remove -y gnome-shell-extension-apps-menu
-sudo dnf remove -y gnome-shell-extension-background-logo
-sudo dnf remove -y gnome-shell-extension-common
-sudo dnf remove -y gnome-shell-extension-launch-new-instance
-sudo dnf remove -y gnome-shell-extension-places-menu
-sudo dnf remove -y gnome-shell-extension-window-list
+sudo dnf remove -y gnome-shell-extension-*
 sudo dnf remove -y gnome-system-monitor
-sudo dnf remove -y gnome-terminal
-# sudo dnf remove -y gnome-terminal-nautilus
 sudo dnf remove -y gnome-themes-extra
 sudo dnf remove -y gnome-tour
 sudo dnf remove -y gnome-user-docs
@@ -59,6 +49,8 @@ sudo dnf remove -y totem*
 sudo dnf remove -y gnome-initial-setup
 sudo dnf remove -y yelp
 sudo dnf remove -y simple-scan
+sudo dnf remove -y gnome-software
+sudo dnf remove -y gnome-calendar
 
 # DNF Config 
 sudo sh -c 'cat << EOF >> /etc/dnf/dnf.conf
@@ -103,6 +95,7 @@ rm -rf ~/synth-shell-prompt
 # Mouse & Trackpad Config
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad click-method 'areas'
+gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrains Mono Medium 12'
 
 # Add Minimize Button
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'
