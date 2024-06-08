@@ -17,8 +17,9 @@ sudo dnf remove -y gnome-remote-desktop
 sudo dnf remove -y gnome-shell-extension-*
 sudo dnf remove -y gnome-system-monitor
 sudo dnf remove -y gnome-themes-extra
+sudo dnf remove -y gnome-themes-extra
 sudo dnf remove -y gnome-tour
-sudo dnf remove -y gnome-user-docs
+sudo dnf remove -y gnome-terminal
 sudo dnf remove -y gnome-user-share
 sudo dnf remove -y gnome-video-effects
 sudo dnf remove -y gnome-weather
@@ -75,6 +76,8 @@ sudo dnf install -y git
 sudo dnf install -y gh
 sudo dnf install -y gnome-shell-extension-pop-shell
 sudo dnf install -y vlc
+sudo dnf install -y blackbox-terminal
+sudo dnf install -y nautilus
 
 # Install Flatpak Packages
 sudo flatpak install -y flathub app/com.raggesilver.BlackBox/x86_64/stable
